@@ -34,7 +34,11 @@ export default class QuestaoModel {
         for (let resposta of this.#respostas)
             if (resposta.revelada) return true
         
-        return  false;
+        return false;
+    }
+
+    get naoRespondida() {
+        return !this.respondida;
     }
 
     responderCom(indice: number): QuestaoModel {
