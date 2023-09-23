@@ -14,9 +14,10 @@ const letras = [
 
 interface QuestaoProps {
     questao: QuestaoModel
+    respostaFornecida: (indice: number) => void
 }
 
-const Questao = ({questao}: QuestaoProps) => {
+const Questao = ({questao, respostaFornecida}: QuestaoProps) => {
 
     function renderRespostas () {
         return questao.respostas.map((resposta, i)=> 
@@ -26,6 +27,7 @@ const Questao = ({questao}: QuestaoProps) => {
                 indice={i}
                 letra={letras[i].valor}
                 corFundoLetra={letras[i].cor}
+                respostaFornecida={respostaFornecida}
             />
         )
     }
