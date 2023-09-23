@@ -58,6 +58,17 @@ export default class QuestaoModel {
         return new QuestaoModel(this.#id, this.#enunciado, respostasEmbaralhadas, this.#acertou)
     }
 
+    static fromObject(obj: QuestaoModel): QuestaoModel {
+        const respostas = obj.respostas.map(resposta => RespostaModel.fromObject(resposta))
+        
+        return new QuestaoModel(
+            obj.id,
+            obj.enunciado,
+            respostas,
+            obj.acertou
+        )
+    }
+
     toEntity() {
         return {
             id: this.#id,

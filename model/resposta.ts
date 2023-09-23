@@ -33,6 +33,14 @@ export default class RespostaModel {
         return new RespostaModel(this.#valor, this.#certa, true)
     }
 
+    static fromObject(obj: RespostaModel): RespostaModel {
+        return new RespostaModel(
+            obj.valor,
+            obj.certa,
+            obj.revelada
+        )
+    }
+
     toEntity() {
         return {
             valor: this.#valor,
