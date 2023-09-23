@@ -6,7 +6,7 @@ interface EnunciadoProps {
     texto: string
 }
 
-export const Enunciado = ({texto}: EnunciadoProps) => {
+const Enunciado = ({texto}: EnunciadoProps) => {
   return (
     <div className={styles.texto}>
         <div className={styles.texto}>{texto}</div>
