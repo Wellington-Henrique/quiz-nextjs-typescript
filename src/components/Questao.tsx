@@ -15,6 +15,7 @@ const letras = [
 
 interface QuestaoProps {
     questao: QuestaoModel
+    tempoPraResposta?: number
     respostaFornecida: (indice: number) => void
     tempoEsgotado: () => void
 }
@@ -37,7 +38,7 @@ const Questao = (props: QuestaoProps) => {
         <div className={styles.questao}>
             <Enunciado texto={props.questao.enunciado}/>
             <Temporizador
-                duracao={10}
+                duracao={props.tempoPraResposta ?? 10}
                 tempoEsgotado={props.tempoEsgotado}
             />
             {renderRespostas()}

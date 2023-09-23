@@ -15,12 +15,12 @@ export default function Home() {
   const [questao, setQuestao] = useState(questaoMock)
 
   function respostaFornecida(indice: number) {
-    if (questao.naoRespondida)
-      setQuestao(questao.responderCom(indice))
+    setQuestao(questao.responderCom(indice))
   }
-
+  
   function tempoEsgotado() {
-    setQuestao(questao.responderCom(-1))
+    if (questao.naoRespondida)
+      setQuestao(questao.responderCom(-1))
   }
 
   return (
