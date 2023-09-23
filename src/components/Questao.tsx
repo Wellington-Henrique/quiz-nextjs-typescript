@@ -13,11 +13,12 @@ const Questao = ({questao}: QuestaoProps) => {
 
     function renderRespostas () {
         return questao.respostas.map((resposta, i)=> 
-            <Resposta 
+            <Resposta
+                key={i}
                 valor={resposta}
                 indice={i}
                 letra="A"
-                corLetra='#F2C866'
+                corFundoLetra='#F2C866'
             />
         )
     }

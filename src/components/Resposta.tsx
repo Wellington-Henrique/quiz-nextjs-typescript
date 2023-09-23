@@ -7,7 +7,7 @@ interface RespostaProps {
     valor: RespostaModel
     indice: number
     letra: string
-    corLetra: string
+    corFundoLetra: string
 }
 
 const Resposta = (props: RespostaProps) => {
@@ -17,7 +17,7 @@ const Resposta = (props: RespostaProps) => {
         <div className={styles.resposta}>
             <div className={styles.conteudoResposta}>
                 <div className={styles.frente}>
-                    <div className={styles.letra}>
+                    <div className={styles.letra} style={{backgroundColor: props.corFundoLetra}}>
                         {props.letra}
                     </div>
                     <div className={styles.valor}>
