@@ -18,6 +18,7 @@ const BASE_URL = 'http://localhost:3000/api/'
 export default function Home() {
   const [idsDasQuestoes, setIdsDasQuestoes] = useState<number[]>([])
   const [questao, setQuestao] = useState<QuestaoModel>(null);
+  const [respostasCertas, setRespostasCertas] = useState<number>(null);
 
   useEffect(() => {
     carregarIdsQuestoes()
@@ -41,8 +42,11 @@ export default function Home() {
     setQuestao(questaoEntity);
   }
 
-  function questaoRespondida(questao: QuestaoModel) {
+  function questaoRespondida(questaoRespondida: QuestaoModel) {
+    setQuestao(questaoRespondida)
 
+    if (questaoRespondida.acertou)
+      setRespostasCertas(respostasCertas + 1)
   }
 
   function irPraProximoPasso() {
