@@ -5,8 +5,10 @@ export default function handler(req, res) {
 
   const questao = questoes.find(questao => questao.id === id);
 
-  if (!!questao)
-    res.status(200).json(questao.toEntity())
+  if (!!questao) {
+    const questaoSelecionada = questao.embaralharRespostas();
+    res.status(200).json(questaoSelecionada.toEntity());
+  }
   else
     res.status(204).send("Questão não encontrada!")
 }
