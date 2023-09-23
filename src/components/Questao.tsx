@@ -1,10 +1,12 @@
 import React from 'react'
+
 import QuestaoModel from '../../model/questao';
 
-import styles from '../styles/Questao.module.css'
 import Enunciado from './Enunciado';
 import Resposta from './Resposta';
 import Temporizador from './Temporizador';
+
+import styles from '../styles/Questao.module.css'
 
 const letras = [
     {valor: "A", cor: "#F2C866"},

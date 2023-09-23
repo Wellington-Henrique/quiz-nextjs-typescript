@@ -1,9 +1,10 @@
 
-import Questao from '../components/Questao'
+import { useState } from 'react'
+
 import QuestaoModel from '../../model/questao'
 import RespostaModel from '../../model/resposta'
-import { useState } from 'react'
-import Botao from '../components/Botao'
+
+import Questionario from '../components/Questionario'
 
 const questaoMock = new QuestaoModel(1, "Melhor cor?", [
   RespostaModel.errada("Verde"),
@@ -15,13 +16,12 @@ const questaoMock = new QuestaoModel(1, "Melhor cor?", [
 export default function Home() {
   const [questao, setQuestao] = useState(questaoMock)
 
-  function respostaFornecida(indice: number) {
-    setQuestao(questao.responderCom(indice))
+  function questaoRespondida(questao: QuestaoModel) {
+
   }
-  
-  function tempoEsgotado() {
-    if (questao.naoRespondida)
-      setQuestao(questao.responderCom(-1))
+
+  function irPraProximoPasso() {
+
   }
 
   return (
@@ -32,12 +32,12 @@ export default function Home() {
       alignItems: 'center',
       height: '100vh'
     }}>
-      <Questao 
+      <Questionario
         questao={questao}
-        respostaFornecida={respostaFornecida}
-        tempoEsgotado={tempoEsgotado}
+        ultima={true}
+        questaoRespondida={questaoRespondida}
+        irPraProximoPasso={irPraProximoPasso}
       />
-      <Botao texto="Próxima" href='/resultado'/>
     </div>
   )
 }
