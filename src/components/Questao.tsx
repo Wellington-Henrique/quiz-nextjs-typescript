@@ -2,6 +2,7 @@ import React from 'react'
 import QuestaoModel from '../../model/questao';
 
 import styles from '../styles/Questao.module.css'
+import Enunciado from './Enunciado';
 
 interface QuestaoProps {
     questao: QuestaoModel
@@ -10,7 +11,7 @@ interface QuestaoProps {
 export const Questao = ({questao}: QuestaoProps) => {
     return (
     <div className={styles.questao}>
-        <h1>Questão</h1>
+        <Enunciado texto={questao.enunciado}/>
     </div>
   )
 }
