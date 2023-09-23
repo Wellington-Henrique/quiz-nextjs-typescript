@@ -26,7 +26,7 @@ const Questao = (props: QuestaoProps) => {
     function renderRespostas () {
         return props.questao.respostas.map((resposta, i)=> 
             <Resposta
-                key={i}
+                key={`${props.questao.id}-${i}`}
                 valor={resposta}
                 indice={i}
                 letra={letras[i].valor}
@@ -40,6 +40,7 @@ const Questao = (props: QuestaoProps) => {
         <div className={styles.questao}>
             <Enunciado texto={props.questao.enunciado}/>
             <Temporizador
+                key={props.questao.id}
                 duracao={props.tempoPraResposta ?? 10}
                 tempoEsgotado={props.tempoEsgotado}
             />
