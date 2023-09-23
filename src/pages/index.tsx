@@ -1,17 +1,10 @@
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 import QuestaoModel from '../../model/questao'
-import RespostaModel from '../../model/resposta'
 
 import Questionario from '../components/Questionario'
-
-const questaoMock = new QuestaoModel(1, "Melhor cor?", [
-  RespostaModel.errada("Verde"),
-  RespostaModel.errada("Vermelha"),
-  RespostaModel.errada("Azul"),
-  RespostaModel.certa("Preta"),
-])
 
 const BASE_URL = 'http://localhost:3000/api/'
 
@@ -19,6 +12,8 @@ export default function Home() {
   const [idsDasQuestoes, setIdsDasQuestoes] = useState<number[]>([])
   const [questao, setQuestao] = useState<QuestaoModel>(null);
   const [respostasCertas, setRespostasCertas] = useState<number>(null);
+
+  const router = useRouter();
 
   useEffect(() => {
     carregarIdsQuestoes()
@@ -49,14 +44,34 @@ export default function Home() {
       setRespostasCertas(respostasCertas + 1)
   }
 
-  function irPraProximoPasso() {
+  function idProximaPergunta() {
+    const proximoIndice = idsDasQuestoes.indexOf(questao?.id) + 1
+    return idsDasQuestoes[proximoIndice]
+  }
 
+  function irPraProximoPasso() {
+    const proximoId = idProximaPergunta();
+    proximoId ? irPraProximaQuestao(proximoId) : finalizar();
+  }
+
+  function irPraProximaQuestao(proximoId: number) {
+    carregarQuestao(proximoId)
+  }
+
+  function finalizar() {
+    router.push({
+      pathname: '/resultado',
+      query: {
+        total: idsDasQuestoes.length,
+        certas: respostasCertas
+      }
+    })
   }
 
   return (
     <Questionario
       questao={questao}
-      ultima={true}
+      ultima={!idProximaPergunta()}
       questaoRespondida={questaoRespondida}
       irPraProximoPasso={irPraProximoPasso}
     />

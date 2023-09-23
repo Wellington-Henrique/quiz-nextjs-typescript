@@ -21,10 +21,6 @@ export const Questionario = (props: QuestionarioProps) => {
             props.questaoRespondida(props.questao.responderCom(indice))
     }
 
-    function tempoEsgotado() {
-
-    }
-
     return (
         <div className={styles.questionario}>
             
@@ -34,7 +30,7 @@ export const Questionario = (props: QuestionarioProps) => {
                     questao={props.questao}
                     tempoPraResposta={6}
                     respostaFornecida={respostaFornecida}
-                    tempoEsgotado={tempoEsgotado}
+                    tempoEsgotado={props.irPraProximoPasso}
                 />
                 <Botao 
                     texto={props.ultima ? "Finalizar" : "Próxima"}
