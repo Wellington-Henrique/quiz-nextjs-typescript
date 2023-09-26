@@ -1,15 +1,22 @@
 .resposta {
     display: flex;
-    min-width: 500px;
+    min-width: 500px; 
     width: 80%;
     height: 100px;
     margin: 10px;
+    perspective: 1000px;
 }
 
 .conteudoResposta {
     position: relative;
     display: flex;
     flex: 1;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.respostaRevelada.conteudoResposta {
+    transform: rotateY(180deg);
 }
 
 .frente, .verso {
@@ -17,6 +24,8 @@
     display: flex;
     height: 100%;
     width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .frente {
@@ -27,6 +36,10 @@
     background-color: #fff;
 }
 
+.verso {
+    transform: rotateY(180deg);
+}
+
 .verso > div {
     display: flex;
     flex-direction: column;
@@ -35,7 +48,6 @@
     flex: 1;
     border-radius: 12px;
 }
-
 
 .certa {
     background-color: #2BAA6D;
@@ -53,11 +65,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     height: 40px;
     width: 40px;
-    
-    border-radius: 50%;
+    border-radius: 20px;
     font-size: 1.3rem;
     font-weight: 700;
     margin-right: 20px;

@@ -51,6 +51,7 @@ export default function Home() {
 
   function irPraProximoPasso() {
     const proximoId = idProximaPergunta();
+    console.log(proximoId)
     proximoId ? irPraProximaQuestao(proximoId) : finalizar();
   }
 

@@ -23,7 +23,6 @@ export const Questionario = (props: QuestionarioProps) => {
 
     return (
         <div className={styles.questionario}>
-            
             {props.questao &&
             <>
                 <Questao
