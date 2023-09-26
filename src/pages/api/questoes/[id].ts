@@ -1,6 +1,6 @@
 import questoes from '../bancoDeQuestoes'
 
-export default function handler(req, res) {
+export default function questoesPorId(req, res) {
   const id = +req.query.id;
 
   const questao = questoes.find(questao => questao.id === id);
