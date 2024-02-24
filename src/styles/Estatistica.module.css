@@ -20,3 +20,17 @@
     font-size: 1.7rem;
     font-weight: 200;
 }
+
+@media (max-width: 922px) {
+    .valor {
+        height: 120px;
+        width: 120px;
+        font-size: 3rem;
+    }
+    
+    .texto {
+        color: #ddd;
+        font-size: 1.2rem;
+        font-weight: 200;
+    }
+}

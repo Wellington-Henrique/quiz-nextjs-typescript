@@ -7,6 +7,7 @@ import QuestaoModel from '../../model/questao'
 import Questionario from '../components/Questionario'
 
 const BASE_URL = 'https://quiz-nextjs-typescript.vercel.app/api/'
+// const BASE_URL = 'http://localhost:3000/api/'
 
 export default function Home() {
   const [idsDasQuestoes, setIdsDasQuestoes] = useState<number[]>([])
@@ -18,7 +19,6 @@ export default function Home() {
   useEffect(() => {
     carregarIdsQuestoes()
   }, [])
-
 
   useEffect(() => {
     idsDasQuestoes?.length && carregarQuestao(idsDasQuestoes[0])

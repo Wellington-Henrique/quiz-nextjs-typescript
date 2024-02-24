@@ -3,3 +3,9 @@
     flex-direction: column;
     align-items: center;
 }
+
+@media (max-width: 720px) {
+    .questao {
+        width: 100%;
+    }
+}

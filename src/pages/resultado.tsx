@@ -19,17 +19,20 @@ const Resultado = () => {
           texto="Perguntas"
           valor={total}
         />
+
         <Estatistica
           texto="Certas"
           valor={certas}
           corFundo='#9CD2A4'
         />
+
         <Estatistica
           texto="Percentual"
           valor={`${percentual}%`}
           corFundo='#DE6A33'
         />
       </div>
+      
       <Botao href="/" texto="Tentar novamente"/>
     </div>
   )
